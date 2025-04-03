@@ -8,8 +8,6 @@ public class Score : MonoBehaviour
     
     public TextMeshProUGUI txt;
     private int score=0;
-
-    
     public void trackScore(int points)
     {
         score += points;

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -20,14 +20,15 @@ public class Movement : MonoBehaviour
     private bool alreadyDropped;
     private float moveInput;
 
-    
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void nextFruity()
     {
         var randomFruit = fruitImg[Random.Range(0, fruitImg.Length)];
         _randomFruit = randomFruit;
     }
-
-
     public void spawnFruit()
     {   
         if(alreadyDropped == false)
@@ -82,13 +83,9 @@ public class Movement : MonoBehaviour
             
         }
     }
-
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveInput * speed * Time.deltaTime, rb.velocity.y);
     }
 
-  
-
-   
 }

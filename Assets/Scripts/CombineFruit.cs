@@ -8,14 +8,8 @@ public class CombineFruit : MonoBehaviour
 
     private bool isMerged = false;
     public int layer;
-
-  
     private int point = 5;
     public GameObject pref;
-
-   
-
-
     private void mergeFruit(CombineFruit fruit)
     {
         isMerged = true;
@@ -34,9 +28,6 @@ public class CombineFruit : MonoBehaviour
 
         FindObjectOfType<Score>().trackScore(point);
     }
-
-    
-
     public void OnCollisionEnter2D(Collision2D collision)
     {
         CombineFruit fruit = collision.gameObject.GetComponent<CombineFruit>();
